@@ -5,25 +5,16 @@ import { docsearchPlugin } from "@vuepress/plugin-docsearch";
 
 export default defineUserConfig({
     head: [
-        ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: `/images/icons/favicon-16x16.png`, }],
-        ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: `/images/icons/favicon-32x32.png`, }],
-        ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: `/images/icons/apple-touch-icon.png`, }],
-        ['link', { rel: 'manifest', href: `/manifest.webmanifest`, }],
-        ['link', { rel: 'mask-icon', color: '#5bbad5', href: `/images/icons/safari-pinned-tab.svg`, }],
-        ['link', { rel: 'shortcut icon', href: `/images/icons/favicon.ico`, }],
-        ['meta', { name: 'apple-mobile-web-app-title', content: 'GravitLauncher Wiki' }],
-        ['meta', { name: 'application-name', content: 'GravitLauncher Wiki' }],
-        ['meta', { name: 'msapplication-TileColor', content: '#603cba' }],
-        ['meta', { name: 'msapplication-config', content: '/images/icons/browserconfig.xml' }],
-        ['meta', { name: 'theme-color', content: '#ffffff' }],
-        ['meta', { property: 'og:title', content: 'GravitLauncher Wiki' }],
-        ['meta', { property: 'og:type', content: 'website' }],
-        ['meta', { property: 'og:url', content: 'https://gravitlauncher.com/' }],
-        ['meta', { property: 'og:image', content: 'https://gravitlauncher.com/images/logo.png' }],
-        ['meta', { property: 'og:image:width', content: '512' }],
-        ['meta', { property: 'og:image:height', content: '512' }],
+        
     ],
-    lang: 'ru-RU',
+    locales: {
+    '/': {
+      lang: 'Ru',
+    },
+    '/en/': {
+      lang: 'Eng',
+    },
+  },
     title: 'GravitLauncher Wiki',
     description: 'GravitLauncher Wiki',
     port: '8080', //Порт на котором запускается VuePress
@@ -36,6 +27,7 @@ export default defineUserConfig({
         editLinkPattern: ':repo/edit/:branch/:path',
         locales: {
             '/': {
+                selectLanguageName: 'Russian',
                 editLinkText: 'Измените эту страницу на GitHub',
                 lastUpdatedText: "Последнее обновление",
                 notFound: [
@@ -50,45 +42,100 @@ export default defineUserConfig({
                 contributors: false,
                 contributorsText: "Спонсоры",
             },
+            '/en/': {
+                editLinkText: 'Change this page to GitHub',
+                lastUpdatedText: "Last update",
+                notFound: [
+                    "There's nothing here.",
+                    "How did we get here?",
+                    "Looks like we have a few links that don't work."
+                ],
+                backToHome: "Back to Home",
+                openInNewWindow: "open in a new window",
+                toggleDarkMode: "go dark",
+                toggleSidebar: "switch the sidebar",
+                contributors: false,
+                contributorsText: "Sponsors",
+            },
         },
         logo: 'images/logo.png',
         navbar: [
-            {
-                text: 'Руководство',
-                children: [
-                    '/install/README.md',
-                    '/auth/README.md',
-                    '/clientbuild/README.md',
-                    '/servers/README.md',
-                    '/runtime/README.md',
-                    '/other/README.md',
-                    '/modules/README.md',
-                    '/dev/README.md',
-                ],
-            },
-            {
-                text: 'Зеркало',
-                link: 'https://mirror.gravitlauncher.com/',
-            },
-            {
-                text: 'Discord',
-                link: 'https://discord.gg/b9QG4ygY75',
-            },
-        ],
+                {
+                    text: 'Руководство',
+                    children: [
+                        '/ru/install/README.md',
+                        '/ru/auth/README.md',
+                        '/ru/clientbuild/README.md',
+                        '/ru/servers/README.md',
+                        '/ru/runtime/README.md',
+                        '/ru/other/README.md',
+                        '/ru/modules/README.md',
+                        '/ru/dev/README.md',
+                    ],
+                },
+                {
+                    text: 'Зеркало',
+                    link: 'https://mirror.gravitlauncher.com/',
+                },
+                {
+                    text: 'Discord',
+                    link: 'https://discord.gg/b9QG4ygY75',
+                },
+            ],
+            '/en/': [
+                {
+                    text: 'Guide',
+                    children: [
+                        '/en/install/README.md',
+                        '/en/auth/README.md',
+                        '/en/clientbuild/README.md',
+                        '/en/servers/README.md',
+                        '/en/runtime/README.md',
+                        '/en/other/README.md',
+                        '/en/modules/README.md',
+                        '/en/dev/README.md',
+                    ],
+                },
+                {
+                    text: 'Mirror',
+                    link: 'https://mirror.gravitlauncher.com/',
+                },
+                {
+                    text: 'Discord',
+                    link: 'https://discord.gg/b9QG4ygY75',
+                },
+            ],
+
         sidebar: {
             '/': [
                 {
                     text: 'Руководство',
                     collapsible: false,
                     children: [
-                        '/install/README.md',
-                        '/auth/README.md',
-                        '/clientbuild/README.md',
-                        '/servers/README.md',
-                        '/runtime/README.md',
-                        '/other/README.md',
-                        '/modules/README.md',
-                        '/dev/README.md',
+                        '/ru/install/README.md',
+                        '/ru/auth/README.md',
+                        '/ru/clientbuild/README.md',
+                        '/ru/servers/README.md',
+                        '/ru/runtime/README.md',
+                        '/ru/other/README.md',
+                        '/ru/modules/README.md',
+                        '/ru/dev/README.md',
+                    ],
+                },
+            ],
+            '/en/': [
+                {
+                    text: 'Руководство',
+                    collapsible: false,
+                    children: [
+                        '/en/install/README.md',
+                        '/en/auth/README.md',
+                        '/en/clientbuild/README.md',
+                        '/en/servers/README.md',
+                        '/en/runtime/README.md',
+                        '/en/other/README.md',
+                        '/en/modules/README.md',
+                        '/en/dev/README.md',
                     ],
                 },
             ],
@@ -106,6 +153,14 @@ export default defineUserConfig({
                     translations: {
                         button: {
                             buttonText: 'Поиск',
+                        },
+                    },
+                },
+                '/en/': {
+                    placeholder: 'Search',
+                    translations: {
+                        button: {
+                            buttonText: 'Search',
                         },
                     },
                 },
